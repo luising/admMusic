@@ -40,7 +40,7 @@
 	<body id="page1">
 		<div class="extra">
 <!--==============================header=================================-->
-			<header>
+		<header>
 				<div class="main">
 					<div class="bg-1">
 						<h1><a href="index.html">Rock Band</a></h1>
@@ -81,7 +81,7 @@
 				</div>
 			</header>
 <!--==============================content================================-->
-			<section id="content"><div class="ic">More Website Templates @ TemplateMonster.com. November 21, 2011!</div>
+		<section id="content"><div class="ic">More Website Templates @ TemplateMonster.com. November 21, 2011!</div>
 				<div class="main">
 					<div class="bg-2">
 						<div class="content-padding-1">
@@ -227,6 +227,24 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript"> Cufon.now(); </script>
+		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+		<script>
+				// Initialize Firebase
+				var config = {
+					apiKey: "AIzaSyBP47PairlOssHpL0iMLk4Kmw5WbUm2Dqg",
+					authDomain: "admmusic-96dce.firebaseapp.com",
+					databaseURL: "https://admmusic-96dce.firebaseio.com",
+					projectId: "admmusic-96dce",
+					storageBucket: "",
+					messagingSenderId: "426214881911"
+				};
+				firebase.initializeApp(config);
+				var db = firabese.database();
+				db.ref('metadad').set({
+					app:'admMusic'
+				});
+			</script>
 	</body>
+
+		<script type="text/javascript"> Cufon.now(); </script>
 </html>
