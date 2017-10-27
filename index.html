@@ -251,7 +251,15 @@
 		  };
 		  firebase.initializeApp(config);
 
-			// var db = firebase.database();
+			var db = firebase.database().ref().child("text");
+			//Obtener elementos
+			//  const preObject = document.getElementById('objeto');
+
+			 //Crear Referencias
+			 const dbRefObject = firebase.database().ref().child('text');
+
+			 // Sincronizar cambios objeto
+			 dbRefObject.on('value', snap => console.log(snap.val()));
 			// db.ref('metadata').set({
 			// 	app:"music"
 			// });
