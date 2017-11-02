@@ -54,12 +54,16 @@ function getData()
 
 }
 
-function getRequest(){
-  db.child("Request").on('value', function(snapshot) {
-    snapshot.forEach(function(child) {
-    createHeaders(child.val());
-    showItems(child.val(), child.key);
-  });
+function getRequest()
+{
+  db.child("Request").on('value', function(snapshot)
+    {
+        snapshot.forEach(function(child)
+        {
+          createHeaders(child.val());
+          showItems(child.val(), child.key);
+        });
+    });
 }
 
 
@@ -83,6 +87,8 @@ function showItems(data, key) {
     });
     html += '<td class="text-right"><a href="/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a> <a href="/" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</a></td>';
     html += '</tr>';
-
+    console.log(html);
     $('#results').append(html);
 }
+
+getRequest()
