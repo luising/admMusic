@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<title></title>
 		<meta charset="utf-8">
@@ -14,6 +14,9 @@
 		<script src="js/FF-cash.js" type="text/javascript"></script>
 		<script src="js/script.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/easyTooltip.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+		<script src="js/firebase.js" type="text/javascript"></script>
+
 	</head>
 	<body id="page5">
 		<div class="extra">
@@ -29,7 +32,7 @@
 								<div class="container_12">
 									<div class="grid_12">
 										<ul class="menu">
-											<li class="item"><a href="index.html">Sobres</a></li>
+											<li class="item"><a href="index.html">Sobre</a></li>
 											<li><a href="audio.html">Audios</a></li>
 											<li><a href="video.html">Videos</a></li>
 											<li><a href="gallery.html">Galeria</a></li>
@@ -53,38 +56,43 @@
 							<div class="wrapper">
 								<article class="grid_8">
 									<div class="padding-grid-1">
-										<h3>Contact <strong>Form</strong></h3>
-										<form id="contact-form" enctype="multipart/form-data" method="post" >
+										<h3>Solicitar  <strong>Evento</strong></h3>
+										<form id="contact-form" name="cform" enctype="multipart/form-data" method="post" >
 											<fieldset>
 												<label>
 													<span class="name-input">Nombre:</span>
-													<input name="name" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />
+													<input name="Name" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />
 												</label>
 												<label>
-													<span class="name-input">Correo:</span>
-													<input name="name1" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />
+													<span class="name-input">Direccion:</span>
+													<input name="Dress" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />
 												</label>
 												<label>
-													<span class="name-input">Message:</span>
-													<textarea onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''"></textarea>
-												</label>
-											</fieldset>
+													<span class="name-input">Telefono:</span>
+													<input name="Phone" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />												</label>
+												<label>
+													<span class="name-input">tiempo(h)</span>
+													<input name="CountHours" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />												</label>
+												<label>
+													<span id="Date_id" class="Date">fecha(dia):</span>
+													<input type="date" name="Date" id="fecha" required onchange="diaSemana();">											</fieldset>
 											<div class="link-form">
-												<a class="link link-margin" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
-												<a class="link" href="#" onClick="document.getElementById('contact-form').submit()">Send</a>
+												<a class="link link-margin" href="#" onClick="document.getElementById('contact-form').reset()">Limpiar</a>
+												<a class="link" href="#" name="get" onClick=getData()>Enviar</a>
 											</div>
 											<div class="clear"></div>
 										</form>
 									</div>
 								</article>
+								<div name="info" />
 								<article class="grid_4 alpha">
 									<div class="padding-grid-3">
 										<h3>Contact <strong>Info</strong></h3>
-										<div class="wrapper p2">
+										<!-- <div class="wrapper p2">
 											<figure class="style-img-2 fleft">
 												<iframe width="252" height="195" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
 											</figure>
-										</div>
+										</div> -->
 										<dl class="list-4">
 											<dt>8901 Marmora Road,<br>Glasgow, D04 89GR.</dt>
 											<dd>Telephone: +1 959 603 6035</dd>
@@ -108,7 +116,6 @@
 							<div class="grid_12">
 								<div class="footer-padding">
 									<div class="wrapper">
-										<span class="footer-link"><span>Superior.com &copy; 2011</span> Website Template by <a class="link" href="http://www.templatemonster.com/" target="_blank" rel="nofollow">TemplateMonster.com</a></span>
 										<ul class="list-services">
 											<li><a class="tooltips n-1" title="Twitter" href="#"></a></li>
 											<li><a class="tooltips n-2" title="Facebook" href="#"></a></li>
@@ -123,7 +130,22 @@
 			</div>
 		</footer>
 		<script type="text/javascript"> Cufon.now(); </script>
-		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-		<script src="js/firebase.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			function diaSemana() {
+					var x = document.getElementById("Date");
+					let date = new Date(x.value.replace(/-+/g, '/'));
+
+					let options = {
+						weekday: 'long',
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					};
+					console.log(date.toLocaleDateString('es-MX', options));
+
+			}
+			// document.getElementById("Date_id").innerHTML  = "Dia del Mes: \n " +  f.getMonth();
+		</script>
 	</body>
 </html>

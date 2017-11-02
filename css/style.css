@@ -8,7 +8,7 @@ body {font-family:Arial, Helvetica, sans-serif;font-size:100%;color:#a1a1a1;min-
 .bg-1 {width:100%; background:url(../images/bg-top.jpg) no-repeat center top; min-height:131px}
 .bg-2 {width:100%; background:url(../images/bg-2-tail.gif) repeat center top; border-radius:3px}
 .main {
-	width:960px; 	
+	width:960px;
 	padding:0;
 	margin:0 auto;
 	font-size:0.8125em;
@@ -59,9 +59,9 @@ p {margin-bottom:18px}
 .img-indent-bot1 {margin-bottom:23px}
 .img-indent-bot2 {margin-bottom:26px}
 
-.img-indent {float:left; margin:0 20px 0px 0}	
-.img-indent2 {float:left; margin:0 13px 0px 0}	
-.img-indent-r {float:right; margin:0 0px 0px 40px}	
+.img-indent {float:left; margin:0 20px 0px 0}
+.img-indent2 {float:left; margin:0 13px 0px 0}
+.img-indent-r {float:right; margin:0 0px 0px 40px}
 
 .prev-indent-bot {margin-bottom:10px}
 .prev-indent-bot1 {margin-bottom:6px}
@@ -82,37 +82,37 @@ p {margin-bottom:18px}
 .list-2 li a,
 .link,
 .button,
-.logo {text-decoration:none}	
+.logo {text-decoration:none}
 
 /*********************************header*************************************/
 header {
-	min-height:189px; 
+	min-height:189px;
 	width:100%;
-	position:relative; 
+	position:relative;
 	z-index:2;
 }
 
 h1 {
-	padding:39px 0 0 357px; 
+	padding:39px 0 0 357px;
 	position:relative;
 }
 h1 a {
-	display:block; 
-	width:246px; 
-	height:62px; 
-	text-indent:-5000px; 
+	display:block;
+	width:246px;
+	height:62px;
+	text-indent:-5000px;
 	background:url(../images/logo.png) 0 0 no-repeat;
 }
 .menu-bg-tail {background:url(../images/menu-bg-tail.gif) repeat-x center top; width:100%}
 .menu-bg {background:url(../images/menu-bg.jpg) no-repeat center top; width:100%}
 .menu {
-	padding:10px 0 10px 0; 
+	padding:10px 0 10px 0;
 	width:100%;
 	height:40px;
 	overflow:hidden;
 }
 .menu li {
-	float:left; 
+	float:left;
 	position:relative;
 	background:url(../images/menu-li-line.png) no-repeat left top;
 	padding:5px 33px 0 34px;
@@ -121,11 +121,11 @@ h1 a {
 .menu li.item-1 {padding-right:34px; padding-left:39px}
 .menu li.last {padding-left:33px; padding-right:0px}
 .menu li a {
-	display:inline-block; 
-	font-size:23px; 
+	display:inline-block;
+	font-size:23px;
 	line-height:1.391em;
 	text-transform:uppercase;
-	padding:0; 
+	padding:0;
 	color:#fff;
 	letter-spacing:-1px;
 }
@@ -154,7 +154,7 @@ h1 a {
 
 /*********************************content*************************************/
 #content {
-	width:100%; 
+	width:100%;
 	padding:0;
 	position:relative;
 	z-index:1;
@@ -166,9 +166,9 @@ h1 a {
 .padding-grid-3 {padding: 0 0 0 19px}
 .padding-grid-4 {padding:3px 0 0 19px; line-height:24px}
 h3 {
-	font-size:25px; 
-	line-height:2em; 
-	margin:0 0 9px 0; 
+	font-size:25px;
+	line-height:2em;
+	margin:0 0 9px 0;
 	color:#93ceee;
 }
 h3 strong {color:#fff}
@@ -233,7 +233,7 @@ h6 {
 		color:#fff;
 	}
 		.list-1 li a:hover {color:#93CEEE}
-		
+
 .list-2 {padding:5px 21px 0 0}
 .list-2 li {
 	position:relative;
@@ -285,7 +285,7 @@ h6 {
 .list-4 dd a {margin-left:20px}
 
 
-.link:hover {text-decoration:underline} 
+.link:hover {text-decoration:underline}
 
 dl span {float:left; width:80px}
 .inline {display:inline-block}
@@ -364,7 +364,7 @@ div.nav-controls a {
 	position: relative;
 	height: 479px; /* This should be set to be at least the height of the largest image in the slideshow */
 	z-index:1;
-	
+
 }
  div.loader {
 	position: absolute;
@@ -551,17 +551,17 @@ div.nav-controls a {
 		padding:0;
 		width:100%;
 		overflow:hidden;
-		}			
+		}
 			#contact-form label {display:block; min-height:40px; overflow:hidden}
-			
+
 			#contact-form input {
-				width:479px;
+				width:279px;
 				padding:6px 12px;
 				margin:0;
 				font-family:Arial, Helvetica, sans-serif;
 				font-size:13px;
 				line-height:1.25em;
-				color:#a1a1a1; 
+				color:#a1a1a1;
 				border:1px solid #333333;
 				background:none;
 				outline:none;
@@ -576,7 +576,7 @@ div.nav-controls a {
 				font-family:Arial, Helvetica, sans-serif;
 				font-size:13px;
 				line-height:1.25em;
-				color:#a1a1a1; 
+				color:#a1a1a1;
 				border:1px solid #333333;
 				background:none;
 				overflow:auto;
@@ -591,10 +591,10 @@ div.nav-controls a {
 				}
 		.link-form {text-align:right;padding:8px 20px 0 0}
 		.link-margin {margin-right:20px}
-		
+
 /****************************footer************************/
 footer {
-	width:100%; 
+	width:100%;
 	padding:0;
 	height:104px;
 	position:relative;
@@ -625,8 +625,8 @@ footer {
 }
 .list-services {float:right; padding:2px 0 0 0}
 .list-services li {
-		float:left; 
-		padding:0 4px 0 0px;	
+		float:left;
+		padding:0 4px 0 0px;
 	}
 		.list-services li a {
 			display:inline-block;
@@ -640,12 +640,12 @@ footer {
 		.list-services li.last {padding-right:0px}
 .block {height:104px}
 .extra {
-	min-height:100%; 
-	height:auto !important; 
-	height:100%; 
-	margin: 0 auto -104px; 
+	min-height:100%;
+	height:auto !important;
+	height:100%;
+	margin: 0 auto -104px;
 	position:relative;
 	overflow:hidden;
 	z-index:1;
-} 
+}
 html, body {height:100%}
