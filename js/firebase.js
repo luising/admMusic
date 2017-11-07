@@ -68,27 +68,24 @@ function getRequest()
 
 
 function createHeaders(data) {
-    var html = '';
-    html += '<tr>';
+    var html = '<div class="row header">';
     $.each(data, function(key, value) {
-        html += '<th>' + key + '</th>';
+        html += '<div class="cell">' + key + '</div>';
     });
     html += '<th class="text-right">';
-    html += '</tr>';
 
-    $("#tableHeaders").append(html);
+    $("#table").append(html);
 }
 
 function showItems(data, key) {
     var html = '';
-    html += '<tr>';
     $.each(data, function(key, value) {
-        html += '<td>' + value + '</td>';
+        html += '<div class="cell">' + value + '</div>';
     });
     html += '<td class="text-right"><a href="/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a> <a href="/" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</a></td>';
     html += '</tr>';
     console.log(html);
-    $('#results').append(html);
+    $('#data').append(html);
 }
 
 getRequest()
