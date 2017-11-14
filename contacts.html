@@ -35,7 +35,7 @@
 											<li class="item"><a class="active" href="index.html">Inicio</a></li>
 
 											<li><a href="video.html">Video</a></li>
-											<li><a href="gallery.html">Galleria</a></li>
+											<li><a href="gallery.html">Galeria</a></li>
 											<li class="item-1"><a href="tour-dates.html">Eventos</a></li>
 											<li class="last"><a href="contacts.html">Contacto</a></li>
 										</ul>
@@ -71,14 +71,16 @@
 													<span class="name-input">Telefono:</span>
 													<input name="Phone" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />												</label>
 												<label>
-													<span class="name-input">tiempo(h)</span>
-													<input name="CountHours" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />												</label>
+													<span class="name-input">Tiempo(# de hrs)</span>
+													<input name="CountHours" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />									
+												</label>
 												<label>
-													<span id="Date_id" class="Date">fecha(dia):</span>
-													<input type="date" name="Date" id="fecha" required onchange="diaSemana();">											</fieldset>
+													<span id="Date_id" class="Date">Fecha(dia):</span>
+													<input type="date" name="Date" id="fecha" required onchange="diaSemana();">											
+											</fieldset>
 											<div class="link-form">
 												<a class="link link-margin" href="#" onClick="document.getElementById('contact-form').reset()">Limpiar</a>
-												<a class="link" href="#" name="get" onClick="getData()"> Enviar</a>
+												<a class="link" href="#" name="get" onClick="getData()">Enviar</a>
 											</div>
 											<div class="clear"></div>
 										</form>
@@ -144,6 +146,7 @@
 					};
 					console.log(date.toLocaleDateString('es-MX', options));
 			}
+			
 			function getData()
 			{
 			  // obtener datos del cliente
