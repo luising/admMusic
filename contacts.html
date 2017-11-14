@@ -135,7 +135,6 @@
 			function diaSemana() {
 					var x = document.getElementById("Date");
 					let date = new Date(x.value.replace(/-+/g, '/'));
-
 					let options = {
 						weekday: 'long',
 						year: 'numeric',
@@ -143,6 +142,29 @@
 						day: 'numeric'
 					};
 					console.log(date.toLocaleDateString('es-MX', options));
+
+			}
+			function getData()
+			{
+			  // obtener datos del cliente
+			  Client.Name = document.cform.Name.value
+			  Client.Dress =document.cform.Dress.value
+			  Client.Phone = document.cform.Phone.value
+
+			  // obtener datos del servicio
+			  Service.Time = document.cform.CountHours.value
+			  Service.Cost = 0.0
+			  Service.Date = document.cform.Date.value
+			  // guardar servicio y cliente
+			  var newClient =  db.child("Client").push(Client);
+			  var newService = db.child("Service").push(Service);
+
+			  // generando solicitud
+				Request.ClientId = newClient.key
+			  Request.ServiceId = newService.key
+
+			  // guardando solicitud
+			  var newRequest = db.child("Request").push(Request);
 
 			}
 			// document.getElementById("Date_id").innerHTML  = "Dia del Mes: \n " +  f.getMonth();
