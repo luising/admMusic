@@ -33,6 +33,7 @@
           <div class="cell"> Fecha </div>
           <div class="cell"> Servicio </div>
           <div class="cell"> Costo </div>
+          <div class="cell"> </div>
         </div>
       </div>
       <h1>Eventos Rechazados</h1>
@@ -70,6 +71,8 @@
     <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
     <script src="js/firebase.js" type="text/javascript"></script>
     <!-- javascript logica -->
+    <!-- evento de fila -->
+
     <!-- carga de datos -->
     <script type="text/javascript">
       function getData()
@@ -114,7 +117,7 @@
           // eventos
           Eventdb.forEach(function(child){
             currentEvent = child.val();
-            if(currentEvent.isAdv == 0){
+            if(currentEvent["isAdv"] == 0){
               Client = Clientdb.child(currentEvent.ClientId).val();
               Service = Servicedb.child(currentEvent.ServiceId).val();
               listEvent.push({
@@ -130,34 +133,29 @@
           getRows(listRequest, "tableRequest");
           getRows(listCancel, "tableCancel", 1, 0);
           getRows(listEvent, "tableEvent", 1, 1);
+          addRowHandlers();
+          addRowsClick();
         });
+
       }
       function getRows(data, table, menu, isAcept)
       {
         for (var i in data){
-          var html = '<div data-toggle="modal" data-target="#myModal" class="row">';
-          $.each(data[i], function(key, value) {
-            html += '<div class="cell">' + value + '</div>';
-          });
+          var html ="";
           if(menu == 1){
-            phone = data[i].Telefono;
-            if(isAcept == 1){
-              titulo = "notificar aceptado";
-              mensage = "hola " + data[i].Nombre + ", su solicitud fue aceptada para " + data[i].Fecha +"\n Costo : " + data[i].Costo;
-              c = "green";
-            }else{
-              titulo = "notificar Rechazado";
-              mensage = "hola " + data[i].Nombre + ", los sentimos su solicitud fue Rechazada para " + data[i].Fecha;
-              c = "red";
-            }
-            etiqueta = '<a color=' + c + ' href="https://api.whatsapp.com/send?text=' + mensage + '&phone=52'+ phone + '">' + titulo + '</a>';
-            html += '<div class="cell">' + etiqueta + '</div>';
+            html += '<div class="row">'
+            $.each(data[i], function(key, value) {
+              html += '<div class="cell">' + value + '</div>';
+            });
+          } else{
+            html += '<div data-toggle="modal" data-target="#myModal" class="row">'
+            $.each(data[i], function(key, value) {
+              html += '<div class="cell">' + value + '</div>';
+            });
           }
           html += '</div>';
           $("#" + table).append(html);
-          if(menu != 1){
-            addRowHandlers();
-          }
+
         }
       }
       var keyactual;
@@ -193,8 +191,49 @@
             });
         });
       }
+      function addRowsClick()
+      {
+        $(function() {
+          $( "#tableEvent .row" ).click(function() {
+            var eventKey = $(this).find('.cell:first-child').text();
+            console.log(eventKey);
+            var Client = {};
+            var Service = {};
+            db.once('value', function(snapshot){
+              currentEvent = snapshot.child("Event").child(eventKey).val();
+              Client = snapshot.child("Client").child(Request.ClientId).val();
+              Service = snapshot.child("Service").child(Request.ServiceId).val();
+              currentEvent["isAdv"] = 1;
+              db.child("Event").child(eventKey).set(currentEvent);
+              mensage = "hola " + Client.Name + ", su solicitud fue aceptada para " + Service.Date +"\n Costo : " + Service.Cost;
+              location.href = "https://api.whatsapp.com/send?text=" + mensage + "&phone=52" + Client.Phone;
+            });
+          });
+        });
+        $(function() {
+          $( "#tableCancel .row" ).click(function() {
+            var requestKey = $(this).find('.cell:first-child').text();
+            console.log(requestKey);
+            var currentEvent;
+            var Client;
+            var Service;
+            db.once('value', function(snapshot){
+              currentEvent = snapshot.child("Request").child(requestKey).val();
+              Client = snapshot.child("Client").child(Request.ClientId).val();
+              Service = snapshot.child("Service").child(Request.ServiceId).val();
+              console.log(currentEvent);
+              currentEvent["isAdv"] = 1;
+              db.child("Request").child(requestKey).set(currentEvent);
+              mensage = "hola " + Client.Name + ", su solicitud fue Rechazada para " + Service.Date;
+              location.href = "https://api.whatsapp.com/send?text=" + mensage + "&phone=52" + Client.Phone;
+            });
+
+          });
+        });
+      }
       getData();
     </script>
+
     <!-- evento de botones -->
     <script type="text/javascript">
       $( "#btnAcept" ).click(function() {
@@ -206,28 +245,31 @@
             Request = snapshot.child("Request").child(keyactual).val();
             Request.isAcept = 1;
             Request["isAdv"] = 0;
-            console.log(Request);
+
             db.child("Service").child(Request.ServiceId).update({Cost:cost});
             db.child("Event").child(keyactual).set(Request);
             db.child("Request").child(keyactual).set(Request);
           });
-
         }
 
         alert("asignado a Evento");
-        // location.reload();
+        location.reload();
       });
       $( "#btnR" ).click(function() {
         console.log(keyactual);
+        var Request;
         db.once('value', function(snapshot){
           Request = snapshot.child("Request").child(keyactual).val();
-          Request.isAcept = -1;
+          Request["isAcept"] = -1;
           Request["isAdv"] = 0;
+          console.log(Request);
           db.child("Request").child(keyactual).set(Request);
         });
-        // location.reload();
+        alert("Rechazando Evento");
+        location.reload();
       });
     </script>
+    <!-- mapas -->
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ7UhEG1Mf9aGBuVGqKcTneZBcSphPU0g&callback=initMap">
     </script>
