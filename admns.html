@@ -132,7 +132,7 @@
           });
           getRows(listRequest, "tableRequest");
           getRows(listCancel, "tableCancel", 1, 0);
-          getRows(listEvent, "tableEvent", 1, 1);
+          getRows(listEvent, "tableEvent", 1, 0);
           addRowHandlers();
           addRowsClick();
         });
@@ -276,7 +276,7 @@
     <script type="text/javascript">
       var map;
       function initMap() {
-        var ubi = {lat: -25.363, lng: 131.044};
+        var ubi = {lat: 25.6673504, lng: -100.08003020000001};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
           center: ubi
