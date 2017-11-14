@@ -10,8 +10,8 @@
 		<script src="js/cufon-yui.js" type="text/javascript"></script>
 		<script src="js/cufon-replace.js" type="text/javascript"></script>
 		<script src="js/Vegur_700.font.js" type="text/javascript"></script>
-		<script src="js/Vegur_400.font.js" type="text/javascript"></script> 
-		<script src="js/FF-cash.js" type="text/javascript"></script> 
+		<script src="js/Vegur_400.font.js" type="text/javascript"></script>
+		<script src="js/FF-cash.js" type="text/javascript"></script>
 		<script src="js/script.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/easyTooltip.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
@@ -72,11 +72,11 @@
 													<input name="Phone" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />												</label>
 												<label>
 													<span class="name-input">Tiempo(# de hrs)</span>
-													<input name="CountHours" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />									
+													<input name="CountHours" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />
 												</label>
 												<label>
 													<span id="Date_id" class="Date">Fecha(dia):</span>
-													<input type="date" name="Date" id="fecha" required onchange="diaSemana();">											
+													<input type="date" name="Date" id="fecha" required onchange="diaSemana();">
 											</fieldset>
 											<div class="link-form">
 												<a class="link link-margin" href="#" onClick="document.getElementById('contact-form').reset()">Limpiar</a>
@@ -92,16 +92,11 @@
 										<h3>Contacto <strong>Informacion</strong></h3>
 										<div class="wrapper p2">
 											<figure class="style-img-2 fleft">
-												<iframe width="252" height="195" src="https://www.google.com.mx/maps/place/Guadalupe,+N.L./@25.490761,-99.680138,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMNAVplF4T1F16ou_akSf1Duh0DaSYgBmxDdFLl!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMNAVplF4T1F16ou_akSf1Duh0DaSYgBmxDdFLl%3Dw152-h86-k-no!7i2048!8i1152!4m5!3m4!1s0x8663305672c436b1:0x57c1c28b4e35f5ae!8m2!3d25.6775595!4d-100.2596935"></iframe>
+												<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230187.55064046764!2d-100.44318182881534!3d25.648728127237323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629531b437f8f5%3A0xa3d3d3ca6ac89894!2sMonterrey%2C+Nuevo+Leon!5e0!3m2!1sen!2smx!4v1510661067641" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+												 <div><p id="coordenadas">lat long</p></div>
 											</figure>
-										</div>
-										<dl class="list-4">
-											<dt>#0000 Guadalupe (Nuevo León)<br>Av. Insurgentes Esq. Victoria.</dt>
-											<dd>Telephone: 81-34-77-59</dd>
-											<dd>E-mail: <a class="link" href="#">mail@demolink.org</a></dd>
-										</dl>
 									</div>
-								</article>	
+								</article>
 							</div>
 						</div>
 					</div>
@@ -133,7 +128,7 @@
 			</div>
 		</footer>
 		<script type="text/javascript"> Cufon.now(); </script>
-		
+
 				<script type="text/javascript">
 			function diaSemana() {
 					var x = document.getElementById("Date");
@@ -146,7 +141,7 @@
 					};
 					console.log(date.toLocaleDateString('es-MX', options));
 			}
-			
+
 			function getData()
 			{
 			  // obtener datos del cliente
