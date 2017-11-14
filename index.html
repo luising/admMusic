@@ -36,17 +36,6 @@
 				$("a[data-gal^='prettyVideo']").prettyPhoto({animation_speed:'normal',theme:'facebook',slideshow:false, autoplay_slideshow: false});
 			});
 		</script>
-		<!--[if lt IE 7]>
-			<div style=' clear: both; text-align:center; position: relative;'>
-				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-				</a>
-			</div>
-		<![endif]-->
-		<!--[if lt IE 9]>
-			<script type="text/javascript" src="js/html5.js"></script>
-			<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-		<![endif]-->
 	</head>
 	<body id="page1">
 		<div class="extra">
@@ -63,7 +52,7 @@
 									<div class="grid_12">
 										<ul class="menu">
 											<li class="item"><a class="active" href="index.html">Inicio</a></li>
-											<li><a href="audio.html">Audio</a></li>
+											
 											<li><a href="video.html">Video</a></li>
 											<li><a href="gallery.html">Galleria</a></li>
 											<li class="item-1"><a href="tour-dates.html">Eventos</a></li>
@@ -91,7 +80,7 @@
 					</div>
 				</div>
 			</header>
-<!--==============================content================================-->
+<!--==============================contenido================================-->
 			<section id="content"><div class="ic">LOS TRADICIONALES DE LA SILLA, Noviembre 21, 2017!</div>
 				<div class="main">
 					<div class="bg-2">
@@ -262,10 +251,8 @@
 			var db = firebase.database().ref().child("text");
 			//Obtener elementos
 			//  const preObject = document.getElementById('objeto');
-
 			 //Crear Referencias
 			 const dbRefObject = firebase.database().ref().child('text');
-
 			 // Sincronizar cambios objeto
 			 dbRefObject.on('value', snap => console.log(snap.val()));
 			// db.ref('metadata').set({
