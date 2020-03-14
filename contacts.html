@@ -66,6 +66,7 @@
 												<label>
 													<span class="name-input">Direccion:</span>
 													<input name="Dress" value="" onBlur="if(this.value=='') this.value=''" onFocus="if(this.value =='' ) this.value=''" />
+													<p onclick=getMarker()>	Buscar</p>
 												</label>
 												<label>
 													<span class="name-input">Telefono:</span>
@@ -87,17 +88,13 @@
 								<div name="info" />
 								<article class="grid_4 alpha">
 									<div class="padding-grid-3">
-										<h3>Contact <strong>Info</strong></h3>
-										<!-- <div class="wrapper p2">
+										<h3>Ubicacion</h3>
+										<div class="wrapper p2">
 											<figure class="style-img-2 fleft">
-												<iframe width="252" height="195" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+												<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230187.55064046764!2d-100.44318182881534!3d25.648728127237323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629531b437f8f5%3A0xa3d3d3ca6ac89894!2sMonterrey%2C+Nuevo+Leon!5e0!3m2!1sen!2smx!4v1510661067641" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+												 <div><p id="coordenadas">lat long</p></div>
 											</figure>
-										</div> -->
-										<dl class="list-4">
-											<dt>8901 Marmora Road,<br>Glasgow, D04 89GR.</dt>
-											<dd>Telephone: +1 959 603 6035</dd>
-											<dd>E-mail: <a class="link" href="#">mail@demolink.org</a></dd>
-										</dl>
+										</div>
 									</div>
 								</article>
 							</div>
@@ -135,7 +132,6 @@
 			function diaSemana() {
 					var x = document.getElementById("Date");
 					let date = new Date(x.value.replace(/-+/g, '/'));
-
 					let options = {
 						weekday: 'long',
 						year: 'numeric',
@@ -143,9 +139,30 @@
 						day: 'numeric'
 					};
 					console.log(date.toLocaleDateString('es-MX', options));
+			}
+			function getData()
+			{
+			  // obtener datos del cliente
+			  Client.Name = document.cform.Name.value
+			  Client.Dress =document.cform.Dress.value
+			  Client.Phone = document.cform.Phone.value
+
+			  // obtener datos del servicio
+			  Service.Time = document.cform.CountHours.value
+			  Service.Cost = 0.0
+			  Service.Date = document.cform.Date.value
+			  // guardar servicio y cliente
+			  var newClient =  db.child("Client").push(Client);
+			  var newService = db.child("Service").push(Service);
+
+			  // generando solicitud
+				Request.ClientId = newClient.key
+			  Request.ServiceId = newService.key
+
+			  // guardando solicitud
+			  var newRequest = db.child("Request").push(Request);
 
 			}
-			// document.getElementById("Date_id").innerHTML  = "Dia del Mes: \n " +  f.getMonth();
 		</script>
 	</body>
 </html>
